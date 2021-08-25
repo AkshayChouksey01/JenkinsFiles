@@ -25,8 +25,19 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        echo 'Deploying the app in the Server'
+      parallel {
+        stage('Deploy') {
+          steps {
+            echo 'Deploying the app in the Server'
+          }
+        }
+
+        stage('Archive') {
+          steps {
+            archiveArtifacts 'LogTextFile.txt'
+          }
+        }
+
       }
     }
 
