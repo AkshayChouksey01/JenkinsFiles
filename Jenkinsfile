@@ -17,10 +17,10 @@ pipeline {
 
         stage('Test Log') {
           environment {
-            LocalVariable = "Hello World"
+            var = "Hello World"
           }
           steps {
-            writeFile(file: 'LogTextFile.txt', text: 'This is the Automation Test File for Jenkins for Local Variable ${LocalVariable}')
+            writeFile(file: 'LogTextFile.txt', text: "This is the Automation Test File for Jenkins for Local Variable Value ${var}")
           }
         }
 
