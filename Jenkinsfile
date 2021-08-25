@@ -29,10 +29,11 @@ pipeline {
         stage('Deploy') {
           steps {
             echo 'Deploying the app in the Server'
+            input(message: 'Do you want To proceed?', id: 'ok')
           }
         }
 
-        stage('Archive') {
+        stage('Artifacts') {
           steps {
             archiveArtifacts 'LogTextFile.txt'
           }
