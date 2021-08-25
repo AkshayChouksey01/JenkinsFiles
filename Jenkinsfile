@@ -17,7 +17,7 @@ pipeline {
 
         stage('Test Log') {
           environment {
-            var = "Hello World"
+            var = 'Hello World'
           }
           steps {
             writeFile(file: 'LogTextFile.txt', text: "This is the Automation Test File for Jenkins for Local Variable Value ${var}")
@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy') {
           steps {
             echo 'Deploying the app in the Server'
-            input(message: 'Do you want To proceed?', id: 'ok')
+            input(message: 'Do you want To Deploy?', id: 'ok')
           }
         }
 
